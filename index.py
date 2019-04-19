@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 from flask import Flask, render_template, request, redirect, flash, sessions
 from game import Game
 
@@ -41,4 +42,7 @@ def create():
     return redirect('/')
 
 
-app.run(port=8080, debug=True)
+if os.getenv('DEVELOP'):
+    app.run(port=8080, debug=True)
+else:
+    app.run()
