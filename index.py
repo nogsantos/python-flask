@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash, sessions
 from game import Game
 
 app = Flask(__name__)
+app.secret_key = '15ec32122a441f3a34c92b8f22c2504e'
 
 two_dots = Game('Two dots', 'Puzzle', 'Mobile')
 tetris = Game('Tetris', 'Puzzle', 'Mobile')
@@ -30,9 +31,13 @@ def create():
     name = request.form['name']
     category = request.form['category']
     console = request.form['console']
+
+    if not name and not category:
+        flash('Required fields are missing', 'error')
+        return redirect('add')
+
     new_game = Game(name, category, console)
     list_of_games.append(new_game)
-
     return redirect('/')
 
 

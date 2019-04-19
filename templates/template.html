@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Games {{ request.path.replace('/', '').capitalize() }} </title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/materialize.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<header>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo center">{{ title }}</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="left hide-on-med-and-down">
+                    <li class="{{ 'active' if request.path == '/'}}"><a href="/">Home</a></li>
+                    <li class="{{ 'active' if request.path == '/add'}}"><a href="/add">Add new Game</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li class="{{ 'active' if request.path == '/'}}"><a href="/">Home</a></li>
+            <li class="{{ 'active' if request.path == '/add'}}"><a href="/add">Add new Game</a></li>
+        </ul>
+    </div>
+</header>
+<section class="container">
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+    <div class="card-panel red lighten-2">
+        <ul>
+            {% for message in errors %}
+            <li class="flow-text red-text text-lighten-4">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with warns = get_flashed_messages(category_filter=["warn"]) %}
+    {% if warns %}
+    <div class="card-panel yellow lighten-2">
+        <ul>
+            {% for message in warns %}
+            <li class="flow-text yellow-text text-darken-4">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with success = get_flashed_messages(category_filter=["success"]) %}
+    {% if success %}
+    <div class="card-panel green lighten-2">
+        <ul>
+            {% for message in success %}
+            <li class="flow-text green-text text-lighten-4">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% block template %}{% endblock %}
+</section>
+<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/jquery-3.4.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/materialize.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

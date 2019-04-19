@@ -1,0 +1,13 @@
+html, body {
+    font-size: 14px;
+    background-color: #ECEFF1 !important;
+    color: #6A6A6A !important;
+}
+
+header {
+    margin-bottom: 1rem;
+}
+
+nav {
+ background-color: #6e95ee !important;
+}

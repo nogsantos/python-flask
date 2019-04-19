@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flask</title>
-</head>
-<body>
-<div class="container">
-    <h1>{{ title }}</h1>
-
-    <table>
+{% extends "template.html" %}
+{% block template %}
+<div class="card-panel row">
+    <table class="striped highlight responsive-table">
         <thead>
         <tr>
             <th>Name</th>
@@ -27,5 +20,4 @@
         </tbody>
     </table>
 </div>
-</body>
-</html>
+{% endblock %}
