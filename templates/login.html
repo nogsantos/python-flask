@@ -1,0 +1,52 @@
+{% extends "template.html" %}
+{% block template %}
+<div class="row">
+    <div class="col s12 card-panel hoverable">
+        <div class="row">
+            <div class="col s12 center">
+                <div class="section">
+                    <h5>Authentication</h5>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col hide-on-med-and-down l8 center">
+                <div class="col s4">
+                    <img src="https://res.cloudinary.com/nogsantos/image/upload/v1555723240/python/kisspng-flask-web-framework-python-software-framework-jinj-flask-.png"
+                         alt="Flask" class="responsive-img">
+                </div>
+                <div class="col s8">
+                    <img src="https://res.cloudinary.com/nogsantos/image/upload/v1555722049/python/1547662972python2.png"
+                         alt="Python" class="responsive-img">
+                </div>
+            </div>
+            <div class="col s12 m12 l4">
+                <form action="/auth" method="POST" autocomplete="off">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input type="text" id="username" name="username" class="form-control">
+                            <label for="username">User name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input type="password" id="password" name="password" class="form-control">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l6 left-align">
+                            <p>User: <b>Your name</b></p>
+                            <p>Pass: <b>admin</b></p>
+                        </div>
+                        <div class="col s12 m6 l6 right-align">
+                            <button type="submit" class="btn blue lighten-3 btn-auth">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

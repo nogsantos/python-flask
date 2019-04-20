@@ -15,17 +15,21 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo center">{{ title }}</a>
+                {% if not request.path == '/login'  %}
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="left hide-on-med-and-down">
                     <li class="{{ 'active' if request.path == '/'}}"><a href="/">Home</a></li>
                     <li class="{{ 'active' if request.path == '/add'}}"><a href="/add">Add new Game</a></li>
                 </ul>
+                {% endif %}
             </div>
         </nav>
+        {% if not request.path == '/login'  %}
         <ul class="sidenav" id="mobile-demo">
             <li class="{{ 'active' if request.path == '/'}}"><a href="/">Home</a></li>
             <li class="{{ 'active' if request.path == '/add'}}"><a href="/add">Add new Game</a></li>
         </ul>
+        {% endif %}
     </div>
 </header>
 <section class="container">
