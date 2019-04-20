@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
 import os
+
 from flask import Flask, render_template, request, redirect, flash, session, url_for
 from game import Game
 
@@ -45,6 +45,7 @@ def create():
 
     new_game = Game(name, category, console)
     list_of_games.append(new_game)
+
     flash(f'New game {name} success added', 'success')
 
     return redirect(url_for('index'))
@@ -81,7 +82,8 @@ def is_not_authenticated() -> bool:
     return 'logged_user' not in session or session['logged_user'] is None
 
 
-if os.getenv('DEVELOP'):
-    app.run(port=8080, debug=True)
-else:
-    app.run()
+if __name__ == '__main__':
+    if os.getenv('DEVELOP'):
+        app.run(port=8080, debug=True)
+    else:
+        app.run()

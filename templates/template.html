@@ -22,7 +22,12 @@
                     <li class="{{ 'active' if request.path == '/add'}}"><a href="{{ url_for('add') }}">Add new Game</a></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                  <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                  <li>
+                      <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+                      {{ session['logged_user'] }}
+                      <i class="material-icons right">arrow_drop_down</i>
+                      </a>
+                  </li>
                 </ul>
                 {% endif %}
             </div>
