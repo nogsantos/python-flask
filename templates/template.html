@@ -18,16 +18,23 @@
                 {% if not request.path == '/login'  %}
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="left hide-on-med-and-down">
-                    <li class="{{ 'active' if request.path == '/'}}"><a href="/">Home</a></li>
-                    <li class="{{ 'active' if request.path == '/add'}}"><a href="/add">Add new Game</a></li>
+                    <li class="{{ 'active' if request.path == '/'}}"><a href="{{ url_for('index') }}">Home</a></li>
+                    <li class="{{ 'active' if request.path == '/add'}}"><a href="{{ url_for('add') }}">Add new Game</a></li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                  <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
                 {% endif %}
             </div>
         </nav>
         {% if not request.path == '/login'  %}
         <ul class="sidenav" id="mobile-demo">
-            <li class="{{ 'active' if request.path == '/'}}"><a href="/">Home</a></li>
-            <li class="{{ 'active' if request.path == '/add'}}"><a href="/add">Add new Game</a></li>
+            <li class="{{ 'active' if request.path == '/'}}"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="{{ 'active' if request.path == '/add'}}"><a href="{{ url_for('add') }}">Add new Game</a></li>
+        </ul>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="{{ url_for('logout') }}">Logout</a></li>
         </ul>
         {% endif %}
     </div>

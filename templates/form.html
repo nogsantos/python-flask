@@ -1,7 +1,7 @@
 {% extends "template.html" %}
 {% block template %}
 <div class="card-panel row">
-    <form class="col s12" action="/create" method="POST" autocomplete="off">
+    <form class="col s12" action="{{ url_for('create') }}" method="POST" autocomplete="off">
         <div class="row">
             <div class="input-field col s12 m12 l12">
                 <input type="text" id="name" name="name" class="form-control">
